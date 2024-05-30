@@ -32,7 +32,7 @@ class Event(models.Model):
         This method executes daily to notify salespeople about upcoming events.
         """
         today = datetime.combine(fields.Date.today(), time(0, 0, 0))
-        # here we couldhave compared with date <= , instead of contacting on the same day that is defined
+        # here we could have compared with date <= , instead of contacting on the same day that is defined
         # but this will require marking the events that have been checked
         events = self.search([('communication_starts_before', '=', today), ('is_crm_event','=',True)])
 
